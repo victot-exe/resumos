@@ -79,5 +79,29 @@ public class MeuServico{
 }
 ~~~
 
-- [x] Quando usar `@Component` -> Quando tem acesso ao código fonte da aplicação.
+- [x] Quando usar `@Component` -> marca classes de serviços simples como compents gerenciados pelo spring
+- Classes simples que não requerem uma configuração detalhada.
+~~~
+@Component
+public class MinhaClasse{
+    private String mensagem = "Hello!";
+
+    public String getMensagem(){
+        return mensagem;
+    }
+}
+
+//Agora podemos injetar diretamente em uma classe
+public class MeuServico{
+    private MinhaClasse minhaClasse;
+
+    @AutoWired
+    public MeuServico(MinhaClasse minhaClasse){
+        this.minhaClasse = minhaClasse;
+    }
+}
+~~~
+
+- [x] Beans vsus Components
+
 - [x] Implementar a *IoC* e a *DI (dependence injection)*
