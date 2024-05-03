@@ -3,16 +3,17 @@
 ## Database *DB*
 - [x] É uma coleção de dados estruturados, agrupados de forma concisa
 - [x] É composto de: 
-- Tabelas -> 
-- Procedures -> 
-- Views -> 
-- Etc...
+    - Tabelas -> 
+    - Procedures -> 
+    - Views -> 
+    - Etc...
 *Semelhante a uma tabela do Excel* -> divido em tabelas, que são divididas em linhas *(rows)* e colunas *(columns)*.  
 
 ## SQL commands
 
-### DDL *- Data Definition Language*
-- [x] CREATE -> Cria uma tabela
+### DDL - Data Definition Language
+- Gerencia a estrutura do DB, criando e modificando tabelas, índices, etc...
+- [x] CREATE -> Cria um novo objeto
 ~~~
 CREATE TABLE Produtos(
     Id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -26,9 +27,22 @@ CREATE TABLE Produtos(
 `IDENTITY` -> Deixa o campo automático, o proprio banco incrementa esse valor
 `PRIMARY KEY` -> define como chave primária, não deixando aquele valor se repetir
 
-- [x] DROP ->
-- [x] ALTER ->
+- [x] ALTER -> Modifica a definição de um objeto
+~~~SQL
+ALTER TABLE dbo.pessoas ADD DTNascimento date
+~~~
+- [x] DROP -> Remove um obejto
+~~~SQL
+DROP TABLE dbo.pessoas
+~~~
 - [x] TRUNCATE ->
+
+#### Schemas
+- Define a estrutura lógica;
+- Agrupa objetos em um conjunto lógico;
+- É uma forma de organizar e gerenciar objetos;
+- Ajuda a controlar o acesso aos objetos agrupados;  
+`SchemaName.TableName`, `SchemaName.StoredProcedureName` -> `Person.Adress`
 
 ### DCL *- Data Control Language*
 - [x] GRANT ->
