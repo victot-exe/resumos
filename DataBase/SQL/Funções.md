@@ -29,3 +29,21 @@
 | `PATINDEX` | Permite usar wildcards '%' para pesquisar um padrão (`PATINDEX('%oQueProcurar%', expression)`) |
 | `FORMAT` | Muda a formatação com reconhecimento de localidade (`FORMAT(value, format, [culture])`) |
 | `CONCAT` | Concatena strings, e pode ser usado apenas com o `+`. |
+| **Date** |   |
+| `GETDATE()` | Retorna a data atual do servidor |
+| `SYSDATETIMEOFFSET()` | Retorna a data atual do servidor com o fuso horário |
+| `DAY(SYSDATETIMEOFFSET())` | Retorna o dia da data especificada |
+| `MONTH(SYSDATETIMEOFFSET())` | Retorna o mês da data especificada |
+| `YEAR(SYSDATETIMEOFFSET())` | Retorna o ano da data especificada |
+| `DATEPARTY(yy, SYSDATETIMEOFFSET())` | Retorna a parte da data especificada, desde os ms até as semanas |
+| `DATEDIFF(day, 'DataInicial', 'DataFinal')` | retorna a diferença entre duas datas de acordo com a medida de tempo desejada(day, year, minute...) |
+| `DATEADD(year, 1, GETDATE())` | Adiciona um tempo na data, o tempo é especificado antes e a quantidade no meio, por fim a data inicial, |
+| `DATEFROMPARTS(<year>, <month>, <day>)` | Retorna a data a partir de partes |
+| `EOMONTH(DATA, [1 ou -1])` | Retorna o ultimo dia do mes de uma data, para o mes seguinte colocar 1, e o anterior -1 |
+| `SWITCHOFFSET(<dataComTimeZone>, <timezone>)` | Altera o fuso horário da data |
+| **Matemáticas** |   |
+| `ABS()` | Retorna o valor absoluto |
+| `POWER(value, potencia)` | retorna a potência indicada |
+| `FLOOR()` | Retorna o maior inteiro menor ou igual a expressão |
+| `ROUND(valor, precisão)` | Arredonda decimais |
+| `RAND` | Valor aleatório / randômico entra 0 e 1 |
