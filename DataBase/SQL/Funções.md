@@ -47,3 +47,11 @@
 | `FLOOR()` | Retorna o maior inteiro menor ou igual a expressão |
 | `ROUND(valor, precisão)` | Arredonda decimais |
 | `RAND` | Valor aleatório / randômico entra 0 e 1 |
+| **Agregação** | *Funções matemáticas ou estatisticas em um conjunto de valores, retornando um único valor* |
+| `COUNT` | é usado para contar quantas linhas tem no agrupamento |
+| `SUM` | Calcula a soma dos valores da coluna |
+| `AVG` | CAlcula a média dos valores de um agrupamento |
+| `MIN`/`MAX` | Retorna o valor mínimo/máximo da coluna ou expressão. (pode ser usada com numeros, datas e strings) |
+| `GROUP BY` | Agrupa os resultados de uma consulta com base em uma ou mais colunas |
+| **Classificação** |   |
+| `RANK`/`DENSE_RANK()`/`ROW_NUMBER` | Retorna a classificação da linha no conjunto de resultados(classificação = 1 + qtd de classificações acima da linha) `RANK() OVER([partition_by_clausa] ORDER BY order_by_clause)` |
