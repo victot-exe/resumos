@@ -85,3 +85,34 @@ INNER JOIN dbo.credits_netflix cn
 | `UNION ALL` | Faz o que o `UNION` faz só que incluindo os registros duplicados |
 | `EXCEPT` | Retorna as linhas da primeira consulta exceto as linhas que existam na segunda consulta|
 | `INTERSECT` | Retorna as linhas em comum entre as duas consultas (Intersecção) |
+
+## Manipulando dados
+
+ - `INSERT` -> Usado para inserir novos registros em uma table;
+    1. A cada novo registro, as restrições de obrigatoriedade(NOT NULL), referências(FK), e chaves unicas serão verificadas;
+    2. Colunas com autoincremento(IDENTITY) devem ser omitidas para a inserção, já que o valor será unico e dado pelo sistema;
+    3. Colunas DEFAULT e não obrigatorias podem ser omitidas;
+
+- Sintaxe
+~~~SQL
+INSERT INTO [schema].[table] ([(lista colunas, ...n)])
+VALUES ([lista de valores, ...n])
+--ou
+INSERT INTO [schema].[table] ([(lista colunas, ...n)])
+SELECT [(lista colunas, n)]
+FROM [schema].[table]
+--ou
+SELECT *
+INTO [schema].[nova_table]
+FROM [schema].[table]
+~~~
+
+- `UPDATE` -> Altera dados de uma table;
+
+- Sintaxe
+~~~SQL
+UPDATE [table]
+SET NomeColuna1 = Valor,
+    NomeColuna2 = Valor
+[WHERE (condicoes)]
+~~~
