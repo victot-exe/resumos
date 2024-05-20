@@ -126,3 +126,45 @@ DELETE FROM [table]
 [WHERE <condição>]
 -- Se não for feita a condição serão excluidos todos os registros da table
 ~~~
+
+## Transações
+- É uma única unidade lógica de trabalho que pode conter uma ou mais instruções sql;
+- Seu proposito é garantir a integridade das informações;
+- Todas as instruções devem ser bem sucedidas para que a transação seja confirmada, caso tenha algum erro a operação é cancelada, se estiver tudo certo os dados são gravados no DB;
+
+- **Transações explicitas**  
+~~~SQL
+BEGIN TRAN
+    <INSERT...>
+    <DELETE...>
+    <UPDATE...>
+COMMIT TRAN
+~~~
+- As transações são confirmadas pelo `COMMIT TRANSACTION` ou revertidas pelo `ROLLBACK TRANSACTION`
+- **Transações implícitas**
+~~~SQL
+INSERT INTO Conta(Id, Valor)
+VALUES (123, 100.00)
+~~~
+- Acontecem sem serem declaradas, a confirmação ou revertida automaticamente automaticamente;
+
+* **Locking**
+- Proteção de acesso a dados que estão sendo alterados;
+- Impede que operações entrem em conflito, assegurando a integridade dos dados, mesmo em ambientes movimentados;
+- Diferentes níveis de proteção: linha, página ou table;
+- Impede que os efeitos de uma transação sejá visto por outras transações;
+* **Blocking**
+- Resultado lógico do `LOCKING`;
+- Usuários concorrentes podem ficar bloqueados, impedindo teporariamente o acesso aos recursos;
+
+* **Tratamendo de erros**
+- Utiliza a estrutura de try/catch
+~~~SQL
+BEGIN TRY
+    DECLARE @Divisor INT = 0
+    SELECT 10/@Divisor; --erro de divisão por 0
+END TRY
+BEGIN CATCH
+    PRINT "ERRO: " + ERROR_MESSAGE()
+END CATCH
+~~~
