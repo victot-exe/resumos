@@ -116,3 +116,13 @@ SET NomeColuna1 = Valor,
     NomeColuna2 = Valor
 [WHERE (condicoes)]
 ~~~
+
+- `DELETE` -> Remove uma ou mais linhas de uma table
+    - As restrições de integridade referêncial (FK) serão verificadas para cada linha (não é permitido excluir o registro usado em outra table como FK)
+
+-Sintaxe
+~~~SQL
+DELETE FROM [table]
+[WHERE <condição>]
+-- Se não for feita a condição serão excluidos todos os registros da table
+~~~
